@@ -46,7 +46,7 @@ public class TransactionController {
             @RequestParam Long userId,
             @RequestParam String month,
             @RequestParam TransactionType type) {
-        YearMonth yearMonth = YearMonth.parse(month, DateTimeFormatter.ofPattern("yyyy-MM"));
+        YearMonth yearMonth = YearMonth.parse(month, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         BigDecimal total = transactionService.calculateTotalForMonth(userId, yearMonth, type);
         return ResponseEntity.ok(total);
     }
